@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {FiArrowLeft} from 'react-icons/fi'
 import logoImg from '../../assets/logo.svg'
 import api from '../../services/api'
@@ -12,6 +12,7 @@ export default function Register() {
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
 
+    const history = useHistory()
 
 
     async function handleRegister(e) {
@@ -29,6 +30,8 @@ export default function Register() {
             const response = await api.post('ongs', data)
 
             alert(`seu ID é: ${response.data.id}`)
+
+            history.push('/')
         } catch (err) {
             alert(err)
         }
