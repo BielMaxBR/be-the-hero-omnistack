@@ -28,7 +28,7 @@ export default function Incidents() {
     }
 
     function sendZap() {
-        Linking.openURL(`whatsapp://send?phone=5583988301457&text=${message}`)
+        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`)
         
     }
     return (
